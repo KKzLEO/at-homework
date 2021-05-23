@@ -10,9 +10,6 @@ const TimeSlot = ({ start, end, status }) => {
       <Style.Time isAvailable={status === STATUSES.AVAILABLE}>
         {format(start, 'HH:mm')}
       </Style.Time>
-      <Style.Time isAvailable={status === STATUSES.AVAILABLE}>
-        {format(end, 'HH:mm')}
-      </Style.Time>
     </div>
   )
 }
