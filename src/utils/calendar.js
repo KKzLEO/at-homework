@@ -18,12 +18,14 @@ export const generateCalendar = (startDate, schedule) => {
 
       const todaySchedule = sortBy(
         [
-          ...(availableMap[key]?.map((element) => ({
-            ...element,
+          ...(availableMap[key]?.map(({ start, end }) => ({
+            start: new Date(start),
+            end: new Date(end),
             status: STATUSES.AVAILABLE,
           })) || []),
-          ...(bookedMap[key]?.map((element) => ({
-            ...element,
+          ...(bookedMap[key]?.map(({ start, end }) => ({
+            start: new Date(start),
+            end: new Date(end),
             status: STATUSES.BOOKED,
           })) || []),
         ],

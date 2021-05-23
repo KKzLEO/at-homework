@@ -1,11 +1,12 @@
 import { padStart } from './base'
 
-export const add = (date, { days, months, years }) => {
+export const add = (date, { days, months, years, hours }) => {
   const dateObj = new Date(date)
 
   if (days) dateObj.setDate(dateObj.getDate() + days)
   else if (months) dateObj.setMonth(dateObj.getMonth() + months)
   else if (years) dateObj.setFullYear(dateObj.getFullYear() + years)
+  else if (hours) dateObj.setTime(dateObj.getTime() + hours * 60 * 60 * 1000)
 
   return dateObj
 }
